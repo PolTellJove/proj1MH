@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Formulari</title>
+<script type="text/javascript">
+
+    let usuari = {Narcisa:"123",Pepe:"456"}
+    let users = {Narcisa:{email:"narcisaht@gmail.com",password:"123"},Pepe:{email:"pepe@gmail.com",password:"456"}};
+
+    function login(){
+        let userElement = document.getElementById("userLog");
+        let userPassElement = document.getElementById("userPass")
+
+        if(userElement.value in users && users[userElement.value].password == userPassElement.value){
+            alert("Login correcto "+userElement.value)
+        }else{
+            alert("Login incorrecto ")
+        }
+    }
+
+    function register(){
+        let userRegElement = document.getElementById("userReg").value;
+        let emailElement = document.getElementById("email").value
+        let pass1Element = document.getElementById("pass1").value;
+        let pass2Element = document.getElementById("pass2").value;
+
+        if(pass1Element != "" && pass2Element != ""){
+            if(pass1Element == pass2Element){
+                let newUser = {email:emailElement,password:pass1Element}
+                users[userRegElement] = newUser;
+                alert("Registro realizado")
+            }
+        }else{
+            alert("Registro no realizado")
+        }
+    }
+
+</script>
+</head>
+
+<body>
+
+    <form style="background-color:CadetBlue;">
+        <h4>Login</h4>
+        <label>User</label>
+        <br>
+        <input type="text" name="user" id="userLog">
+        <br>
+        <label>Password</label>
+        <br>
+        <input type="password" name="password" id="userPass">
+        <br>
+        <input type="button" value="Login" onclick="login();">
+    </form>
+    
+    <br >
+    
+    <form style="background-color:DarkCyan;">
+        <h4>Register</h4>
+        <label>User</label>
+        <br>
+        <input type="text" name="user" id="userReg">
+        <br>
+        <label>Email</label>
+        <br>
+        <input type="text" name="email" id="email">
+        <br>
+        <label>Password</label>
+        <br>
+        <input type="password" name="password1" id="pass1">
+        <br>
+        <label>Confirm Password</label>
+        <br>
+        <input type="password" name="password2" id="pass2">
+        <br>
+        <input type="button" value="Register" onclick="register();">
+    </form>
+
+    
+</body>
+</html>
